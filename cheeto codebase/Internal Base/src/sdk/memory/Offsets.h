@@ -9,6 +9,8 @@
 // migration to new way to handle offsets
 // TODO: FINISH THIS
 // THIS IS NOT FOR PROD YET, IDGAF ABOUT MACROS JUST DONT USE YET
+// ALSO AIMPUNCANGLE IS NO LONGER SUPPORTED
+// USE CACHE INSTEAD
 
 class PseudoMigration
 {
