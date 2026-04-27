@@ -54,9 +54,9 @@ public:
     SCHEMA(Vector, m_vecViewOffset, Offsets::m_vecViewOffset);
     SCHEMA(int, m_iShotsFired, Offsets::m_iShotsFired);
     SCHEMA(Vector, m_aimPunchAngle, Offsets::m_aimPunchAngle);
-	SCHEMA(Vector, m_aimPunchAngleVel, Offsets::m_aimPunchAngleVel);
+	//SCHEMA(Vector, m_aimPunchAngleVel, Offsets::m_aimPunchAngleVel);
     SCHEMA(uintptr_t, m_pObserverServices, Offsets::m_pObserverServices);
-	SCHEMA(C_UTL_VECTOR, m_aimPunchCache, Offsets::m_aimPunchCache);
+	//SCHEMA(C_UTL_VECTOR, m_aimPunchCache, Offsets::m_aimPunchCache);
 
     // this is for the fFlag for bhop
     SCHEMA(int, m_fFlags, Offsets::m_fFlags);

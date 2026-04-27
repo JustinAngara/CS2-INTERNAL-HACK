@@ -11,6 +11,7 @@
 #include "../../src/sdk/memory/PatternScan.h"
 #include "HackManager.h"
 #include "Setup.h"
+#include <iostream>
 #pragma comment(lib, "d3d11.lib")
 
 // global stuff
@@ -37,6 +38,7 @@ LRESULT __stdcall Hooks::hkWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lP
 
 HRESULT __stdcall Hooks::hkPresent(IDXGISwapChain* swapChain, UINT sync, UINT flags)
 {
+	std::cout << "i am in g_init\n";
 	if (!g_Init)
 	{
 		if (FAILED(swapChain->GetDevice(__uuidof(ID3D11Device), (void**)&g_Device)))
@@ -64,6 +66,7 @@ HRESULT __stdcall Hooks::hkPresent(IDXGISwapChain* swapChain, UINT sync, UINT fl
 
 		g_Init = true;
 
+		std::cout << "hkPresent is fine\n";
 
 	}
 
@@ -85,7 +88,7 @@ HRESULT __stdcall Hooks::hkPresent(IDXGISwapChain* swapChain, UINT sync, UINT fl
 	if (GetAsyncKeyState(VK_INSERT) & 1) Menu::IsOpen = !Menu::IsOpen;
 	if (Menu::IsOpen) Menu::Render();
 	
-
+	
 	///////////////// THIS IS WHERE GAME TICK IS LATCHED ONTO ADD STUFF HERE
 	// from here i want to create a entity hook that iterates through every entity and performs updates to features
 	// encapsulate a general hack manager to pass in vars/update state
@@ -144,9 +147,13 @@ void Hooks::Setup()
 		nullptr, 0, D3D11_SDK_VERSION, &sd, &sc, &dev, &fl, &ctx)))
 	{
 		Setup::Run();
+		std::cout << "hk present";
+
 		void** vtable = *reinterpret_cast<void***>(sc);
 		void* present = vtable[8];
 		MH_CreateHook(present, &hkPresent, reinterpret_cast<void**>(&oPresent));
+
+		
 
 		// Hook CreateMove via vtable
 		//uintptr_t inputSystemAddr = Memory::PatternScan("client.dll", "48 8B 0D ?? ?? 48 8B 01 FF 90 ?? ?? 84");
