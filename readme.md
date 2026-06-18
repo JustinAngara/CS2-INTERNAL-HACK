@@ -1,5 +1,4 @@
-﻿﻿# Traf: CS2 Hack
-# CS2 Updated Version: February
+﻿﻿# CS2 Updated Version: February
 
 ![Alt text](images/1.png)
 ![Alt text](images/2.png)
@@ -25,7 +24,6 @@
 - [License](#license)
 
 ## About :information_source:
-- Traf Client
 - C++ version: 20
 
 ## Credits
