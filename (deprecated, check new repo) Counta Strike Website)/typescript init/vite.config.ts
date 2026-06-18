@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	base: "/CS2-TRAF-CLIENT/",
+	base: "/CS2-INTERNAL-HACK/",
 })
